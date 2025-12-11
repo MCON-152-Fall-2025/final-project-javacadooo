@@ -19,5 +19,5 @@ jobs:
           distribution: temurin
           java-version: '21'
 
-      - name: Run tests
-        run: mvn -ntp -B test
+      - name: Build with Maven
+        run: mvn -B package --file recipeshare/pom.xml
