@@ -3,7 +3,6 @@ package com.mcon152.recipeshare.web;
 import com.mcon152.recipeshare.domain.MealPlan;
 import com.mcon152.recipeshare.domain.Recipe;
 import com.mcon152.recipeshare.service.MealPlanService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +14,6 @@ public class MealPlanController {
 
     private final MealPlanService mealPlanService;
 
-    @Autowired
     public MealPlanController(MealPlanService mealPlanService) {
         this.mealPlanService = mealPlanService;
     }

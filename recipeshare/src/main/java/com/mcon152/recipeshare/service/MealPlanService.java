@@ -2,11 +2,12 @@ package com.mcon152.recipeshare.service;
 
 import com.mcon152.recipeshare.domain.MealPlan;
 import com.mcon152.recipeshare.domain.Recipe;
-import com.mcon152.recipeshare.pattern.MealPlanComponent;
-import com.mcon152.recipeshare.pattern.SingleRecipeComponent;
 import com.mcon152.recipeshare.repository.MealPlanRepository;
 import com.mcon152.recipeshare.repository.RecipeRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+// These require Aviva's work:
+import com.mcon152.recipeshare.pattern.MealPlanComponent;
+import com.mcon152.recipeshare.pattern.SingleRecipeComponent;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,7 +19,6 @@ public class MealPlanService {
     private final MealPlanRepository mealPlanRepository;
     private final RecipeRepository recipeRepository;
 
-    @Autowired
     public MealPlanService(MealPlanRepository mealPlanRepository, RecipeRepository recipeRepository) {
         this.mealPlanRepository = mealPlanRepository;
         this.recipeRepository = recipeRepository;
@@ -36,7 +36,6 @@ public class MealPlanService {
         Recipe recipe = recipeRepository.findById(recipeId)
                 .orElseThrow(() -> new RuntimeException("Recipe not found"));
 
-        // Avoid duplicates if desired
         if (!plan.getRecipes().contains(recipe)) {
             plan.getRecipes().add(recipe);
         }
@@ -55,8 +54,7 @@ public class MealPlanService {
     }
 
     /**
-     * Bridges the DB entity with the Composite Pattern logic.
-     * This allows us to return a flattened list of recipes.
+     * Bridges the DB entity with Aviva's Composite Pattern logic.
      */
     public List<Recipe> getFlattenedRecipes(Long planId) {
         MealPlan planEntity = mealPlanRepository.findById(planId)
