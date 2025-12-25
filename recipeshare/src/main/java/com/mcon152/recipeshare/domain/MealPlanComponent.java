@@ -24,7 +24,7 @@ public class MealPlanComponent implements RecipeComponent {
     public List<Recipe> getRecipes() {
         List<Recipe> allRecipes = new ArrayList<>();
         for (RecipeComponent component : components) {
-            allRecipes.addAll(component.getRecipes());
+            allRecipes.addAll(component.getRecipes()); // Recursive flattening
         }
         return allRecipes;
     }

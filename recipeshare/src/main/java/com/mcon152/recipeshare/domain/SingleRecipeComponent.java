@@ -12,7 +12,7 @@ public class SingleRecipeComponent implements RecipeComponent {
 
     @Override
     public String getName() {
-        return recipe.getName();
+        return recipe.getName(); // This now works because of the getName() alias in Recipe
     }
 
     @Override

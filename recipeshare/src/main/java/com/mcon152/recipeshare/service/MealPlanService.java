@@ -4,13 +4,12 @@ import com.mcon152.recipeshare.domain.MealPlan;
 import com.mcon152.recipeshare.domain.Recipe;
 import com.mcon152.recipeshare.repository.MealPlanRepository;
 import com.mcon152.recipeshare.repository.RecipeRepository;
-// These require Aviva's work:
-import com.mcon152.recipeshare.pattern.MealPlanComponent;
-import com.mcon152.recipeshare.pattern.SingleRecipeComponent;
+// Fixed imports to point to .domain instead of .pattern
+import com.mcon152.recipeshare.domain.MealPlanComponent;
+import com.mcon152.recipeshare.domain.SingleRecipeComponent;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 
 @Service
