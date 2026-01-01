@@ -8,7 +8,7 @@ class MealPlanCompositeTest {
 
     @Test
     void testFlatteningNestedMealPlans() {
-        // 1. Setup concrete recipes using the fix constructors
+        // 1.   Setup concrete recipes using the fix constructors
         BasicRecipe eggs = new BasicRecipe();
         eggs.setTitle("Scrambled Eggs");
 

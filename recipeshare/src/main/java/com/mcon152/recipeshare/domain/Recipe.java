@@ -12,7 +12,7 @@ import java.util.Set;
 @DiscriminatorColumn(name = "recipe_type", discriminatorType = DiscriminatorType.STRING, columnDefinition = "VARCHAR(31) DEFAULT 'BASIC'")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public abstract class Recipe extends BaseEntity {
-
+//
     private String title;
     private String description;
 
