@@ -18,6 +18,7 @@ public class VegetarianRecipe extends Recipe {
         super(id, title, description, ingredients, instructions, servings, author);
     }
 
+
     static {
         RecipeRegistry.register("VEGETARIAN", new VegetarianRecipe());
     }

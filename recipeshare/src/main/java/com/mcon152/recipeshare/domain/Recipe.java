@@ -64,6 +64,10 @@ public abstract class Recipe extends BaseEntity {
         this.instructions = instructions;
         this.servings = servings;
     }
+    public Recipe(Long id, String title, String description, String ingredients, String instructions, Integer servings, AppUser author) {
+        this(id, title, description, ingredients, instructions, servings);
+        this.author = author;
+    }
 
     // Existing Getter
     public String getTitle() { return title; }
@@ -102,6 +106,9 @@ public abstract class Recipe extends BaseEntity {
     public void removeTag(Tag tag) {
         this.tags.remove(tag);
         tag.getRecipes().remove(this);
+    }
+    public void clearTags() {
+        this.tags.clear();
     }
 
     public String getRecipeType() { return recipeType; }
