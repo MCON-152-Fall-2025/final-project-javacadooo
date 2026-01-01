@@ -124,12 +124,13 @@ public abstract class Recipe extends BaseEntity {
         this.tags.remove(tag);
         tag.getRecipes().remove(this);
     }
-
-    public void clearTags() {
-        for (Tag tag : new HashSet<>(tags)) {
-            removeTag(tag);
-        }
+public void clearTags() {
+    for (Tag tag : new HashSet<>(this.tags)) {
+        tag.getRecipes().remove(this);
     }
+    this.tags.clear();
+}
+  
 
     // Read-only access to discriminator value
     public String getRecipeType() { return recipeType; }
